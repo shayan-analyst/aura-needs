@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  /* LIGHT THEME (Perfect White Combination) */
+  --background: #FAFAFA;
+  --foreground: #111827; /* Dark Gray/Black Text */
+  --primary: #8A2BE2; /* Aura Neon Purple */
+  --nav-bg: rgba(255, 255, 255, 0.7); /* Transparent White Header */
+  --card-bg: #FFFFFF;
+  --border: #E5E5E5;
+  --aura-color: #d8b4fe; /* Very soft pastel purple for white background */
+  --particle-opacity: 0.4;
+}
+
+.dark {
+  /* DARK THEME (Perfect Black Combination) */
+  --background: #0A0A0A;
+  --foreground: #F9FAFB; /* Pure White Text */
+  --primary: #9D4EDD; /* Glowing Purple */
+  --nav-bg: rgba(10, 10, 10, 0.7); /* Transparent Dark Header */
+  --card-bg: #161616;
+  --border: #262626;
+  --aura-color: #9D4EDD; /* Deep neon aura for black background */
+  --particle-opacity: 0.2;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

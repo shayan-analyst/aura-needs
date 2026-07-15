@@ -1,5 +1,14 @@
 import { products } from "@/data/dummyData";
 import ProductCard from "@/components/product/ProductCard";
+import Link from "next/link";
+
+// Yeh function GitHub Pages ke liye lazmi hai (Saare category pages pehle hi bana dega)
+export function generateStaticParams() {
+  const categories = [...new Set(products.map((p) => p.category))];
+  return categories.map((category) => ({
+    slug: category.toLowerCase().replace(/\s+/g, "-"),
+  }));
+}
 
 // Note: Yahan "use client" NAHI aayega.
 export default async function CategoryPage({ params }) {
@@ -42,9 +51,9 @@ export default async function CategoryPage({ params }) {
         <div className="flex flex-col items-center justify-center py-24 text-center">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-2">No products found</h2>
           <p className="text-gray-500 mb-6">We are currently restocking this category. Check back soon!</p>
-          <a href="/" className="bg-[var(--primary)] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity font-medium">
+          <Link href="/" className="bg-[var(--primary)] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity font-medium">
             Continue Shopping
-          </a>
+          </Link>
         </div>
       )}
       
